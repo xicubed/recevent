@@ -1,0 +1,51 @@
+== Changelog
+
+=== [0.1.0-SNAPSHOT] - 2022-03-30
+
+Initial release.
+
+==== Added
+
+2022-03-30 Updated config.clj to use main not master for branch.
+
+2022-03-30 build task had issues, still looking for com.example.app01... recreated project looking better - might have been mixed up.
+
+2022-03-30 added support for the .editorconfig file already in the project. Seems ok.
+
+2022-03-30 Updated project dependencies from babashka task...
+[script, bash]
+----
+✔ ~/src/skunkwerks/utilities/recevent [main {origin/main}|✔]
+10:52 $ bb outdated:fix
+[ ] outdated:fix 2022-03-30 10:53:03
+
+|    :file |                            :name | :current |   :latest |
+|----------+----------------------------------+----------+-----------|
+| deps.edn |           com.brunobonacci/mulog |    0.8.1 |     0.8.2 |
+|          |          com.github.liquidz/antq |    1.4.0 |     1.6.0 |
+|          | io.github.seancorfield/build-clj |   v0.6.7 |    v0.8.0 |
+|          |              lambdaisland/kaocha | 1.60.977 | 1.64.1010 |
+|          |              org.clojure/clojure |   1.10.3 |    1.11.0 |
+|          |           org.clojure/test.check |    1.1.0 |     1.1.1 |
+|          |              org.slf4j/slf4j-nop |   1.7.35 |    1.7.36 |
+|  pom.xml |              org.clojure/clojure |   1.10.3 |    1.11.0 |
+
+Available diffs:
+- https://github.com/BrunoBonacci/mulog/compare/0.8.1...0.8.2
+- https://github.com/liquidz/antq/compare/1.4.0...1.6.0
+- https://github.com/lambdaisland/kaocha/compare/v1.60.977...v1.64.1010
+- https://github.com/clojure/clojure/compare/clojure-1.10.3...clojure-1.11.0
+- https://github.com/clojure/test.check/compare/test.check-1.1.0...v1.1.1
+Upgraded org.clojure/test.check '1.1.0' to '1.1.1' in deps.edn.
+Upgraded com.brunobonacci/mulog '0.8.1' to '0.8.2' in deps.edn.
+Upgraded lambdaisland/kaocha '1.60.977' to '1.64.1010' in deps.edn.
+Upgraded io.github.seancorfield/build-clj 'v0.6.7' to 'v0.8.0' in deps.edn.
+Upgraded com.github.liquidz/antq '1.4.0' to '1.6.0' in deps.edn.
+Upgraded org.slf4j/slf4j-nop '1.7.35' to '1.7.36' in deps.edn.
+Upgraded org.clojure/clojure '1.10.3' to '1.11.0' in deps.edn.
+Upgraded org.clojure/clojure '1.10.3' to '1.11.0' in pom.xml.
+[✔]︎ outdated:fix 2022-03-30 10:53:13
+----
+
+2022-03-30 Message from GitLab: The Auto DevOps pipeline has been enabled and will be used if no alternative CI configuration file is found.
+Container registry is not enabled on this GitLab instance. Ask an administrator to enable it in order for Auto DevOps to work.

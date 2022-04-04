@@ -1,0 +1,112 @@
+== edu.uidaho.eod/recevent
+:git:               https://git-scm.com[git]
+:clojure-deps-cli:  https://clojure.org/guides/getting_started[clojure deps cli]
+:tools-build:       https://clojure.org/guides/tools_build[tools-build]
+:deps-new:          https://github.com/seancorfield/deps-new[deps-new]
+:build-clj:         https://github.com/seancorfield/build-clj[build-clj]
+:babashka:          https://github.com/babashka/babashka[babashka]
+:toc:
+
+Project edu.uidaho.eod/recevent generated from https://github.com/redstarssystems/apptemplate[Application project template].
+
+See CHANGELOG.adoc for further changes.
+
+2022-03-30 Created a new skunkworks folder since we have two main ones overlapping... skunkworks from the old subversion and a plain skunkworks. Ultimately we can combine them both into this new group skunkwerks. Created with:
+[script, bash]
+----
+recevent is locally in /Users/mikel/src/skunkwerks/utilities. From that dir ran:
+
+clojure -Sdeps '{:deps {org.rssys/apptemplate {:git/tag "0.1.1" :git/sha "215be27" :git/url "https://github.com/redstarssystems/apptemplate.git"}}}' -Tnew create :template org.rssys/apptemplate :name edu.uidaho.eod/recevent
+----
+
+=== Project workflow
+
+To configure project workflow use scripts: `tasks/src/*`, `bb.edn` and `build.clj`.
+
+IMPORTANT: `tasks/src/*` only for Babashka tasks code. +
+`bb.edn` file should be as minimal as possible.
+
+- `tasks/src/build/config.clj` - for project configuration;
+- `tasks/src/build/init.clj` - for tasks internal constants and helpers;
+- `tasks/src/build/tasks.clj` - for tasks code.
+
+Run `bb tasks` to show help for project workflow. The following tasks are available:
+
+[source, bash]
+----
+clean        Clean target folder
+build        Build standalone executable uberjar file
+run          Run application (-main function)
+install      Install this app
+deploy       Deploy this app
+test         Run project tests
+repl         Run Clojure repl
+outdated     Check for outdated dependencies
+outdated:fix Check for outdated dependencies and fix
+format       Format source code
+lint         Lint source code
+javac        Compile java sources
+standalone   Create a standalone application with bundled JDK (using jlink, JDK 9+)
+requirements Install project requirements
+----
+
+[#install-prerequisites]
+=== Install prerequisites
+
+All these tools you need to install only once.
+
+. Install {clojure-deps-cli} tools version 1.10.3.1069+
+.. MacOS
++
+[source,bash]
+----
+brew install clojure/tools/clojure
+----
+.. Linux
++
+Ensure that the following dependencies are installed in OS: `bash`, `curl`, `rlwrap`, and `Java`.
++
+[source, bash]
+----
+curl -O https://download.clojure.org/install/linux-install-1.10.3.1069.sh
+chmod +x linux-install-1.10.3.1069.sh
+sudo ./linux-install-1.10.3.1069.sh
+----
+
+. Install latest {deps-new}
++
+[source,bash]
+----
+clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.4.9"}' :as new
+----
++
+Tool will be installed in `~/.gitlibs/libs/`
+
+. Install {babashka} v0.4.0+
+.. MacOS
++
+[source, bash]
+----
+brew install borkdude/brew/babashka
+----
++
+.. Linux
++
+[source, bash]
+----
+sudo bash < <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install)
+----
+
+. Run once:
++
+[source,bash]
+----
+bb requirements
+----
+to install other necessary tools (MacOS only, for Linux manual instruction).
+
+
+=== License
+
+Copyright © 2021 mikel +
+Distributed under the Eclipse Public License 1.0 or (at your option) any later version.
